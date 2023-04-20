@@ -16,7 +16,7 @@ app.get('/', async (req, res, next) => {
 
 // POST /register
 // TODO - takes req.body of {username, password} and creates a new user with the hashed password
-app.post('/register'), async (req, res, next) => {
+app.post('/register', async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const hashedPw = await bcrypt.hash(password, 10);
@@ -26,7 +26,7 @@ app.post('/register'), async (req, res, next) => {
   catch (error) {
     console.error(error);
   }
-}
+})
 
 // POST /login
 // TODO - takes req.body of {username, password}, finds user by username, and compares the password with the hashed version from the DB
